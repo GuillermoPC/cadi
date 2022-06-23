@@ -19,6 +19,7 @@
 
     {{-- ESTILOS PROPIOS DE BOOTSTRAP --}}
     <link rel="stylesheet"      href="{{asset('css/app.css')}}"> 
+    <link rel="stylesheet"      href="{{asset('css/estilos.css')}}"> 
     {{-- ESTILOS PROPIOS DE BOOTSTRAP --}}
 
     @yield('css')
@@ -27,7 +28,7 @@
 
     
 </head>
-<body>
+<body class="bg-white">
     <!--HEADER-->
     <!--NAV-->
     @include('layouts.partials.header')
@@ -43,17 +44,15 @@
     <!--FOOTER-->
 
     <!--SCRIPTS OCUPADOS EN TODA LA APLICACIÓN-->
+
     <script src = "{{asset('js/app.js')}}" ></script> 
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        });
-    </script>
+    <script src = "{{asset('js/jquery-3.6.0.min.js')}}" ></script> 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    @yield('scripts') 
+    
     <!--SCRIPTS OCUPADOS EN TODA LA APLICACIÓN-->
 
 

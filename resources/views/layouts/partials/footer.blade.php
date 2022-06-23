@@ -4,35 +4,22 @@
   <div class="container p-4">
     <!-- Section: Social media -->
     <section class="mb-4">
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+
       <!-- Facebook -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button"
         ><i class="fab fa-facebook-f"></i
       ></a>
 
-      <!-- Twitter -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-
       <!-- Instagram -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button"
         ><i class="fab fa-instagram"></i
       ></a>
 
-      <!-- Linkedin -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
-
-      <!-- Github -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-github"></i
-      ></a>
     </section>
     <!-- Section: Social media -->
 
@@ -44,7 +31,7 @@
           <!--Grid column-->
           <div class="col-auto">
             <p class="pt-2">
-              <strong>Sign up for our newsletter</strong>
+              <strong>SUSCRÍBETE A NUESTRO NEWSLETTER</strong>
             </p>
           </div>
           <!--Grid column-->
@@ -54,7 +41,7 @@
             <!-- Email input -->
             <div class="form-outline form-white mb-4">
               <input type="email" id="form5Example21" class="form-control" />
-              <label class="form-label" for="form5Example21">Email address</label>
+              <label class="form-label" for="form5Example21">CORREO ELECTRONICO</label>
             </div>
           </div>
           <!--Grid column-->
@@ -63,7 +50,7 @@
           <div class="col-auto">
             <!-- Submit button -->
             <button type="submit" class="btn btn-outline-light mb-4">
-              Subscribe
+              SUBSCRIBIRME
             </button>
           </div>
           <!--Grid column-->
@@ -76,9 +63,9 @@
     <!-- Section: Text -->
     <section class="mb-4">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-        eum harum corrupti dicta, aliquam sequi voluptate quas.
+        
+        Les damos la bienvenida a nuestra estancia infantil dedicada al cuidado, alimentación y educación para los niños y las niñas, a partir de los 6 meses hasta los 6 años.
+      
       </p>
     </section>
     <!-- Section: Text -->
@@ -88,84 +75,24 @@
       <!--Grid row-->
       <div class="row">
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
+        <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">CONTACTO</h5>
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#!" class="text-white">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 4</a>
+              <p><i class="fas fa-phone pe-2          text-shadow-sm"></i>+52 311 212 0276</p>
             </li>
           </ul>
         </div>
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
+        <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">DIRECCIÓN</h5>
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#!" class="text-white">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 4</a>
+                <p><i class="fas fa-map-marker-alt pe-2 text-shadow-sm"></i>Calle Articulo 123 #1, Ampliación Tierra y Libertad, Tepic, Nayarit.</p>
             </li>
           </ul>
         </div>
@@ -180,7 +107,7 @@
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2020 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <a class="text-white" href="https://mdbootstrap.com/">CADI.COM.MX</a>
   </div>
   <!-- Copyright -->
 </footer>
