@@ -33,27 +33,33 @@
         <ul class="navbar-nav" >
       
           <li class="nav-item">
-            <a class="nav-link mx-4 {{request()->is('/')  ? 'active' : ''}}" href=""   >INICIO</a>
+            <a class="nav-link mx-4 {{request()->is('/')  ? 'active' : ''}}" href="/"   >INICIO</a>
           </li> 
       
-          <li class="nav-item">
-            <a class="nav-link mx-4 {{request()->is('/nosotros')  ? 'active' : ''}}" href=""   >SOBRE NOSOTROS</a>
+          <li class="nav-item dropdown">
+            {{-- <a class="nav-link mx-4 {{request()->is('/nosotros')  ? 'active' : ''}}" href=""   >SOBRE NOSOTROS</a> --}}
+            <a class="nav-link mx-4 dropdown-toggle {{request()->is('nosotros*')  ? 'active' : ''}}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              NOSOTROS
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#88B235;">
+              <li><a class="nav-link mx-4 {{request()->is('nosotros/contacto*')  ? 'active' : ''}}" href="{{ route('contacto.index') }}">CONTACTO</a></li>
+            </ul>
           </li>
       
           <li class="nav-item">
-            <a class="nav-link mx-4 {{request()->is('/proyectos')  ? 'active' : ''}}" href=""   >PROYECTOS</a>
+            <a class="nav-link mx-4 {{request()->is('proyectos*')  ? 'active' : ''}}"   href="{{route('proyectos.index')}}"   >PROYECTOS</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link mx-4 {{request()->is('/donaciones')  ? 'active' : ''}}" href=""   >DONAR</a>
+            <a class="nav-link mx-4 {{request()->is('donaciones*')  ? 'active' : ''}}"  href="{{route('donaciones.index')}}"   >DONAR</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link mx-4 {{request()->is('/ayudas')  ? 'active' : ''}}" href=""   >MAS FORMAS DE AYUDAR</a>
+            <a class="nav-link mx-4 {{request()->is('ayuda*')  ? 'active' : ''}}"       href="{{route('ayuda.index')}}"   >MAS FORMAS DE AYUDAR</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link mx-4 {{request()->is('/terminos')  ? 'active' : ''}}" href=""   >T&C</a>
+            <a class="nav-link mx-4 {{request()->is('terminos*')  ? 'active' : ''}}"    href="{{route('terminosycondiciones.index')}}"   >T&C</a>
           </li>
           
         </ul>

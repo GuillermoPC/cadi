@@ -8,6 +8,10 @@
     
     <title>@yield('title')</title>
 
+    {{-- LOGO PESTAÑA --}}
+    <link rel="shortcut icon"   href="{{asset('/storage/logos/ICONO_CADI.png')}}" type="image/x-icon">
+    {{-- LOGO PESTAÑA --}}
+
     {{-- ICONOS DE LOS MODALES --}}
     <link rel='stylesheet'      href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' >
     {{-- ICONOS DE LOS MODALES --}}

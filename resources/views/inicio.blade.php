@@ -117,7 +117,7 @@
                                                         </p>
                                                     </div>
 
-                                                    <div class="row p-2">
+                                                    <div class="row p-2 mx-4">
                                                         <a class="btn btn-cadi" href="#" role="button">Ver Más</a>
                                                     </div>
                                         </div>
@@ -145,7 +145,7 @@
                                                     </p>
                                                 </div>
 
-                                                <div class="row p-2">
+                                                <div class="row p-2 mx-4">
                                                     <a class="btn btn-cadi" href="#" role="button">Ver Más</a>
                                                 </div>
                                     </div>
