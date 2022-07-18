@@ -8,6 +8,9 @@ use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\DonacionController;
 use App\Http\Controllers\AyudaController;
 use App\Http\Controllers\TyCController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\AdministracionController;
+use App\Http\Controllers\KidController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +23,18 @@ use App\Http\Controllers\TyCController;
 |
 */
 
+
+//AUTORIZACIÓN
+Auth::routes();
+
 Route::get('/', function () {
     return view('inicio');
 });
 
-Auth::routes();
+//ADMINISTRACIÓN RUTAS
+Route::resource('administracion',                  AdministracionController::class)->middleware('auth');
+
+//VISTAS PRINCIPALES
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -38,6 +48,14 @@ Route::resource('ayuda',                            AyudaController::class);
 
 Route::resource('terminosycondiciones',             TyCController::class);
 
+Route::resource('nino',                             KidController::class);
+
+
+/* STRIPE DONACIONES */
+
+Route::post('/checkout', [PaymentController::class, 'paymentPost'])->name('payment.post');
+
+/* STRIPE DONACIONES */
 
 /* REDIRECCIONAR A INICIO DESPUES DE UNA RUTA DESCONOCIDA */
 Route::any('{query}', function() { return redirect('/'); })->where('query', '.*');

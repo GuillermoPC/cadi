@@ -59,6 +59,12 @@
     
     <!--SCRIPTS OCUPADOS EN TODA LA APLICACIÓN-->
 
+    <!--SCRIPTS OCUPADOS SOLO EN CIERTAS VISTAS-->
+
+    @yield('scripts-administracion')   {{-- ->ADMINISTRACIÓN  --}}
+
+    <!--SCRIPTS OCUPADOS SOLO EN CIERTAS VISTAS-->
+
 
 </body>
 </html>
