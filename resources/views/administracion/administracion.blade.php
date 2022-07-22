@@ -17,6 +17,8 @@
 
 <link rel   = "stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css">
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 @endsection
 
 {{-- CDN'S CSS OCUPADOS EN ESTA PÁGINA --}}
@@ -53,5 +55,25 @@
 
 {{-- SCRIPTS OCUPADOS EN ESTA PÁGINA --}}
 @section('scripts-administracion')
-    <script src="https://cdn.ckeditor.com/4.16.2/basic/ckeditor.js"    
+    
+    <script src="https://cdn.ckeditor.com/4.16.2/basic/ckeditor.js"                             ></script>
+    
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"                 ></script>
+
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"             ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"     ></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"        ></script>
+
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"   ></script>
+
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"    ></script>
+
+    {{-- SCRIPTS DATATABLE PRODUCTOS  --}}
+    @yield('script-datatable-ninos')
+
 @endsection
+
+
+

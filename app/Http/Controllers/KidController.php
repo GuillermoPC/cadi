@@ -20,6 +20,31 @@ class KidController extends Controller
      */
     public function index()
     {
+        /* $kids = Kid::select('id',
+                            'name',
+                            'father_last_name',
+                            'mother_last_name',
+                            'birthdate',
+                            'genre',
+                            'age',
+                            'img',
+                            'status as estado',
+                            )->get();
+                            
+        return datatables()->of($kids)
+        ->addIndexColumn()
+        ->addColumn('action', function($row){
+   
+            $btn = '<button id="edit-producto" type="button" class="btn btn-success w-30px mx-1 my-1 shadow-sm" data-bs-toggle="modal" data-bs-target="#modal-create-producto"    data-toggle="tooltip" data-placement="bottom" title="Editar"  data-id="'.$row->id.'">      <i class="fas fa-edit"></i>         </button>';
+
+            $btn = $btn.'<button type="button" class="btn btn-danger  w-30px mx-1 my-1 shadow-sm"  data-bs-toggle="modal" data-bs-target="#modal-delete-producto" data-toggle="tooltip" data-placement="bottom" title="Eliminar" data-id="'.$row->id.'">    <i class="fas fa-trash-alt"></i>    </button>';
+
+             return $btn;
+        })
+        ->rawColumns(['action'])
+        ->make(true); */
+
+
 
     }
 
@@ -55,6 +80,7 @@ class KidController extends Controller
             ]); 
 
             DB::beginTransaction();
+
             $kid = new Kid();
             $kid->name              = $request->name;
             $kid->father_last_name  = $request->father_last_name;
@@ -66,18 +92,14 @@ class KidController extends Controller
 
             DB::commit();
 
-            return response()->json(
-                [
-                  'success' => true,
-                  'message' => 'Data inserted successfully'
-                ]
-            );
+            return redirect()->route('administracion.index')->with('agregar-producto','ok');
        
         }catch (\Exception $e) {
           DB::rollback();
           return MessageResponse::sendResponse($request, '', null, $e);
         }
     }
+
 
     /**
      * Display the specified resource.
@@ -89,7 +111,7 @@ class KidController extends Controller
     {
         try {
             $kid = Kid::findOrFail($id);
-            return MessageResponse::sendResponse($request, 'Datos recuperados exitosamente', $kid);
+            return MessageResponse::sendResponse($request, 'Datos recuperados exitosamente', $kid)->with('agregar-producto','ok');
         } catch (\Exception $e) {
             return MessageResponse::sendResponse($request, '', null, $e);
         }
@@ -101,10 +123,11 @@ class KidController extends Controller
      * @param  \App\Models\Kid  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kid $producto)
+    /* public function edit($id)
     {
-        //
-    }
+        $kid = Kid::find($id);
+        return response()->json($kid);
+    } */
 
     /**
      * Update the specified resource in storage.
@@ -136,8 +159,9 @@ class KidController extends Controller
         $kid->save();
         DB::commit();
 
-        return MessageResponse::sendResponse($request, 'Datos actualizados exitosamente', $kid);
-    
+        //return MessageResponse::sendResponse($request, 'Datos actualizados exitosamente', $kid);
+        return redirect()->route('administracion.index')->with('actualizar-producto','ok');
+
     } catch (\Exception $e) {
       DB::rollback();
       return MessageResponse::sendResponse($request, '', null, $e);
@@ -150,14 +174,16 @@ class KidController extends Controller
      * @param  \App\Models\Kid  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
         try {
+            Log::debug($id);
             DB::beginTransaction();
             $kid = Kid::findOrFail($id);
             $kid->delete();
             DB::commit();
-            return MessageResponse::sendResponse($request, 'Datos eliminados exitosamente', $kid);
+            return redirect()->route('administracion.index')->with('eliminar-producto','ok');
+
         } catch (\Exception $e) {
         DB::rollback();
             return MessageResponse::sendResponse($request, '', null, $e);
