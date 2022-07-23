@@ -50,6 +50,8 @@ Route::resource('terminosycondiciones',             TyCController::class);
 
 Route::resource('nino',                             KidController::class);
 
+Route::get('/nino/edit/{id}', [KidController::class, 'getKidById']);
+
 
 /* STRIPE DONACIONES */
 

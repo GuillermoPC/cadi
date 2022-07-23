@@ -1,7 +1,7 @@
     {{-- Form Nuevo Producto --}}
       
       <!-- Modal -->
-      <div class="modal fade" id="modal-create-producto" tabindex="-1" aria-labelledby="modal-create-productoLabel" aria-hidden="true">
+      <div class="modal fade" id="modal-create-producto" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modal-create-productoLabel" aria-hidden="true">
         
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
           
@@ -21,7 +21,7 @@
               <form id="create-kid" action="{{route('nino.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                    <input id="id" name="id" type="hidden" value="">
+                    <input type="hidden" id="id" name="id">
 
                     <div class="form-group">
                       <label>Nombre</label>
@@ -54,10 +54,18 @@
 
                     <div class="form-group">
                       <label>Edad</label>
-                      <input      type="text"         id="age" name="age"        class="form-control"  value="{{ old('age') }}"        placeholder="Introduce Edad" maxlength="30" required>
+                      <input      type="text"         id="age"  name="age"        class="form-control"  value="{{ old('age') }}"        placeholder="Introduce Edad" maxlength="30" required>
                     </div>
 
-                    <div class="text-center p-5">
+                    <div class="form-group">
+                      <label>Imagén</label>
+                      <input      type="file"         id="img"     name="img"        class="form-control"  placeholder="Selecciona una imagen" accept="image/*" required>
+                      <div class="text-center p-2">
+                        <img id="blah" src="#" alt="Selecciona Imagén" class="img-thumbnail rounded" style="width: 200px; height:200px; object-fit: cover;"/>
+                      </div>
+                    </div>
+
+                    <div class="text-center p-2">
                         <button id="#my-form-submit-button" type="submit" class="btn btn-primary">Registrar Niño</button>
                     </div>
 
@@ -77,7 +85,14 @@
 
     {{-- Form Nuevo Producto --}}
 
-
+  <script>
+    img.onchange = evt => {
+    const [file] = img.files
+    if (file) {
+      blah.src = URL.createObjectURL(file)
+    }
+  }
+  </script>
 
     
     

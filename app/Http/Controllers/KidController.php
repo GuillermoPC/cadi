@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
+use Response;
 
 
 class KidController extends Controller
@@ -68,28 +69,55 @@ class KidController extends Controller
     {
         try{
 
-            Log::debug($request);
-
             $this->validate($request,[
                 'name'              => 'required',
                 'father_last_name'  => 'required',
                 'mother_last_name'  => 'required',
                 'birthdate'         => 'required',
                 'genre'             => 'required',
-                'age'               => 'required'
+                'age'               => 'required',
+                'img'               => 'image|max:2048',
             ]); 
 
             DB::beginTransaction();
 
-            $kid = new Kid();
-            $kid->name              = $request->name;
-            $kid->father_last_name  = $request->father_last_name;
-            $kid->mother_last_name  = $request->mother_last_name;
-            $kid->birthdate         = $request->birthdate;
-            $kid->genre             = $request->genre;
-            $kid->age               = $request->age;
-            $kid->save();
+            if($request->id){
+               
+                $kid = Kid::findOrFail($request->id);
+                $kid->name              = $request->name;
+                $kid->father_last_name  = $request->father_last_name;
+                $kid->mother_last_name  = $request->mother_last_name;
+                $kid->birthdate         = $request->birthdate;
+                $kid->genre             = $request->genre;
+                $kid->age               = $request->age;
 
+                if($request->hasFile('img')){
+                    $imagenes   = $request->file('img')->store('public/imagenes/niños');
+                    $url        = Storage::url($imagenes);
+                    $kid->img   = $url;
+                }
+
+                $kid->save();
+                
+            }else{
+                $kid = new Kid();
+                $kid->name              = $request->name;
+                $kid->father_last_name  = $request->father_last_name;
+                $kid->mother_last_name  = $request->mother_last_name;
+                $kid->birthdate         = $request->birthdate;
+                $kid->genre             = $request->genre;
+                $kid->age               = $request->age;
+                
+                if($request->hasFile('img')){
+                    $imagenes   = $request->file('img')->store('public/imagenes/niños');
+                    $url        = Storage::url($imagenes);
+                    $kid->img   = $url;
+                }
+
+                $kid->save();
+
+            }
+                
             DB::commit();
 
             return redirect()->route('administracion.index')->with('agregar-producto','ok');
@@ -145,7 +173,8 @@ class KidController extends Controller
             'mother_last_name'  => 'required',
             'birthdate'         => 'required',
             'genre'             => 'required',
-            'age'               => 'required'
+            'age'               => 'required',
+            'img'               => 'image|max:2048',
         ]); 
 
         DB::beginTransaction();
@@ -156,6 +185,13 @@ class KidController extends Controller
         $kid->birthdate         = $request->birthdate;
         $kid->genre             = $request->genre;
         $kid->age               = $request->age;
+
+        if($request->hasFile('img')){
+            $imagenes   = $request->file('img')->store('public/imagenes/niños');
+            $url        = Storage::url($imagenes);
+            $kid->img   = $url;
+        }
+
         $kid->save();
         DB::commit();
 
@@ -188,6 +224,11 @@ class KidController extends Controller
         DB::rollback();
             return MessageResponse::sendResponse($request, '', null, $e);
         }
+    }
+
+    public function getKidById($id){
+        $kid = Kid::find($id);
+        return response()->json($kid);
     }
 
 }

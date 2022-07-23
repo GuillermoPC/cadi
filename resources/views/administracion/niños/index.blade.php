@@ -50,18 +50,18 @@
                                 <td class="align-middle text-center" style="cursor: pointer; width:1%"> {{$nino->age}}             </td>
                                 <td class="align-middle text-center" style="cursor: pointer; width:1%"> {{$nino->status}}          </td>
                                 <td class="align-middle text-center" style="                 width: 1%">
-                                    
-                                    <button type="button" class="btn btn-success w-30px mx-1 my-1 shadow-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-producto{{$nino->id}}"    data-toggle="tooltip" data-placement="bottom" title="Editar"  >      <i class="fas fa-edit"></i>         </button>
-                                    
+                                                                        
+                                    <a href="javascript:void(0)" onclick="editNino({{$nino->id}})" class="btn bg-success w-30px mx-1 my-1 shadow-sm text-white hoverable"><i class="fas fa-edit"></i></a>
+
                                     <form id="form-delete-confirm" action="{{url('/nino/'.$nino->id)}}" method="POST" class="formulario-eliminar-producto">
                                         @csrf
                                         {{method_field('DELETE')}}
-                                        <button type="submit" class="btn bg-danger w-30px mx-1 my-1 shadow-sm text-white"><i class="fas fa-trash"></i></button>
+                                        <button type="submit" class="btn bg-danger w-30px mx-1 my-1 shadow-sm text-white hoverable"><i class="fas fa-trash"></i></button>
                                     </form>
                                     
                                 </td>
 
-                                @include('administracion.niños.edit')
+                                
 
                             </tr>
                         @endforeach
@@ -69,23 +69,19 @@
             </table>
         </div>
 
-
     </div>
 </section>
-
 
 {{-- SCRIPT DATATABLE INDEX NINOS --}}
 
 @section('script-datatable-ninos')
 
-    
-
     @if(session('agregar-producto') == 'ok')
         <script>
 
             Swal.fire(
-                '¡Registrado!',
-                'Registrado exitosamente.',
+                '¡Exito!',
+                'Operación completada exitosamente.',
                 'success'
                 )
         </script>
@@ -138,7 +134,7 @@
             tableProducto.search(this.value).draw();
         } );   
 
-        $('.formulario-eliminar-producto').submit(function(e){
+        $('#formulario-eliminar-producto').submit(function(e){
             e.preventDefault();
 
             Swal.fire({
@@ -157,6 +153,31 @@
             })
         });
     
+    </script>
+
+    <script>
+        function editNino(id){
+            $.get('/nino/edit/'+id, function(kid){
+                $('#id').val(kid.id);
+                $('#name').val(kid.name);
+                $('#father_last_name').val(kid.father_last_name);
+                $('#mother_last_name').val(kid.mother_last_name);
+                $('#birthdate').val(kid.birthdate);
+                $('#genre').val(kid.genre);
+                $('#age').val(kid.age);
+                $('#blah').attr("src", kid.img);
+                $('#modal-create-productoLabel').text("Editar Registro");
+                $('#modal-create-producto').modal('toggle');
+            })
+        }
+    </script>
+
+    <script>
+        $('#modal-create-producto').on('hidden.bs.modal', function () {
+            $(this).find('form').trigger('reset');
+            $('#blah').attr("src", "");
+            $('#modal-create-productoLabel').text("Nuevo Registro");
+        })
     </script>
 
 @endsection
