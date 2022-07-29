@@ -11,6 +11,7 @@ use App\Http\Controllers\TyCController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdministracionController;
 use App\Http\Controllers\KidController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,9 +50,14 @@ Route::resource('ayuda',                            AyudaController::class);
 Route::resource('terminosycondiciones',             TyCController::class);
 
 Route::resource('nino',                             KidController::class);
+Route::get('/nino/edit/{id}',                       [KidController::class, 'getKidById']);
+Route::post('nino/delete',                          [KidController::class,'delete'])->name('nino.delete');
+Route::get('StatusNino',                            [KidController::class,'UpdateStatusNino'])->name('UpdateStatusNino');
 
-Route::get('/nino/edit/{id}', [KidController::class, 'getKidById']);
-
+Route::resource('blog',                             BlogController::class);
+Route::get('/blog/edit/{id}',                       [BlogController::class, 'getBlogById']);
+Route::post('blog/delete',                          [BlogController::class, 'delete'])->name('blog.delete');
+Route::get('StatusBlog',                            [BlogController::class, 'UpdateStatusBlog'])->name('UpdateStatusBlog');
 
 /* STRIPE DONACIONES */
 

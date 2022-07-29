@@ -24,25 +24,25 @@
                 
                 <div class="item">
                         
-                    <img src="https://images.pexels.com/photos/8613313/pexels-photo-8613313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-slider img-fluid-fil" alt="...">
+                    <img style="object-fit: cover;" src="https://images.pexels.com/photos/8613313/pexels-photo-8613313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-slider img-fluid-fil" alt="...">
 
                 </div>
 
                 <div class="item">
                         
-                    <img src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-slider img-fluid-fil" alt="...">
+                    <img style="object-fit: cover;" src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-slider img-fluid-fil" alt="...">
 
                 </div>
 
                 <div class="item">
                         
-                    <img src="https://images.pexels.com/photos/1001914/pexels-photo-1001914.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-slider img-fluid-fil" alt="...">
+                    <img style="object-fit: cover;" src="https://images.pexels.com/photos/1001914/pexels-photo-1001914.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-slider img-fluid-fil" alt="...">
 
                 </div>
 
                 <div class="item">
                         
-                    <img src="https://images.pexels.com/photos/159579/crayons-coloring-book-coloring-book-159579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-slider img-fluid-fil" alt="...">
+                    <img style="object-fit: cover;" src="https://images.pexels.com/photos/159579/crayons-coloring-book-coloring-book-159579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-slider img-fluid-fil" alt="...">
 
                 </div>
                 

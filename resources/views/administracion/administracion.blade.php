@@ -35,14 +35,14 @@
         <nav class="mt-5">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
               <a class="nav-item nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Niños</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Solicitudes de Apadrinamiento</a>
               <a class="nav-item nav-link" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Blog</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Solicitudes de Apadrinamiento</a>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">@include('administracion.niños.index')</div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">      @include('administracion.solicitudes.index')</div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">      @include('administracion.blog.index')</div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">      @include('administracion.solicitudes.index')</div>
         </div>
 
     </section>
@@ -70,8 +70,10 @@
 
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"    ></script>
 
-    {{-- SCRIPTS DATATABLE PRODUCTOS  --}}
+    {{-- SCRIPTS DATATABLES --}}
     @yield('script-datatable-ninos')
+
+    @yield('script-datatable-blog')
 
 @endsection
 

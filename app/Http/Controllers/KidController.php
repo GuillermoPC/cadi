@@ -44,9 +44,6 @@ class KidController extends Controller
         })
         ->rawColumns(['action'])
         ->make(true); */
-
-
-
     }
 
     /**
@@ -68,60 +65,50 @@ class KidController extends Controller
     public function store(Request $request)
     {
         try{
-
             $this->validate($request,[
                 'name'              => 'required',
                 'father_last_name'  => 'required',
                 'mother_last_name'  => 'required',
+                'history'           => 'required',
                 'birthdate'         => 'required',
                 'genre'             => 'required',
                 'age'               => 'required',
                 'img'               => 'image|max:2048',
             ]); 
-
             DB::beginTransaction();
-
             if($request->id){
-               
                 $kid = Kid::findOrFail($request->id);
                 $kid->name              = $request->name;
                 $kid->father_last_name  = $request->father_last_name;
                 $kid->mother_last_name  = $request->mother_last_name;
+                $kid->history           = $request->history;
                 $kid->birthdate         = $request->birthdate;
                 $kid->genre             = $request->genre;
                 $kid->age               = $request->age;
-
                 if($request->hasFile('img')){
                     $imagenes   = $request->file('img')->store('public/imagenes/niños');
                     $url        = Storage::url($imagenes);
                     $kid->img   = $url;
                 }
-
                 $kid->save();
-                
             }else{
                 $kid = new Kid();
                 $kid->name              = $request->name;
                 $kid->father_last_name  = $request->father_last_name;
                 $kid->mother_last_name  = $request->mother_last_name;
+                $kid->history           = $request->history;
                 $kid->birthdate         = $request->birthdate;
                 $kid->genre             = $request->genre;
                 $kid->age               = $request->age;
-                
                 if($request->hasFile('img')){
                     $imagenes   = $request->file('img')->store('public/imagenes/niños');
                     $url        = Storage::url($imagenes);
                     $kid->img   = $url;
                 }
-
                 $kid->save();
-
             }
-                
             DB::commit();
-
             return redirect()->route('administracion.index')->with('agregar-producto','ok');
-       
         }catch (\Exception $e) {
           DB::rollback();
           return MessageResponse::sendResponse($request, '', null, $e);
@@ -210,25 +197,39 @@ class KidController extends Controller
      * @param  \App\Models\Kid  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        try {
-            Log::debug($id);
-            DB::beginTransaction();
-            $kid = Kid::findOrFail($id);
-            $kid->delete();
-            DB::commit();
-            return redirect()->route('administracion.index')->with('eliminar-producto','ok');
+        if(!isset($request->elemento_id))
+            return redirect()->back()->with('error','Error al eliminar elemento');
+        Kid::find($request->elemento_id)->delete();
+        return redirect()->back()->with('success','Elemento eliminado correctamente');
+    }
 
-        } catch (\Exception $e) {
-        DB::rollback();
-            return MessageResponse::sendResponse($request, '', null, $e);
-        }
+    public function delete(Request $request)
+    {
+        if(!isset($request->elemento_id))
+            return redirect()->back()->with('error','Error al eliminar elemento');
+        Kid::find($request->elemento_id)->delete();
+        return redirect()->back()->with('eliminar-producto','ok');
     }
 
     public function getKidById($id){
         $kid = Kid::find($id);
         return response()->json($kid);
+    }
+
+    public function UpdateStatusNino(Request $request){
+        $NinoUpdate = Kid::findOrFail($request->id);
+        $NinoUpdate->status = $request->status;
+        $NinoUpdate->save();
+
+        if($request->status == 0){
+            $newStatus = '<button type="button" class="btn btn-sm btn-danger">Inactivo</button>';
+        }else{
+            $newStatus = '<button type="button" class="btn btn-sm btn-success">Activo</button>';
+        }
+
+        return response()->json(['var'=>''.$newStatus.'']);
     }
 
 }

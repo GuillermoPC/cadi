@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kids', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('father_last_name');
-            $table->string('mother_last_name');
-            $table->longText('history');
-            $table->date('birthdate');
-            $table->enum('genre',['F','M']);
-            $table->integer('age');
-            $table->longText('img')->nullable();
+            $table->string('author');
+            $table->string('title');
+            $table->longText('body');
+            $table->longText('img');
             //Columnas de control
             $table->boolean('status')->default(true);
             $table->integer('created_by')->nullable();
@@ -40,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kids');
+        Schema::dropIfExists('blogs');
     }
 };

@@ -39,15 +39,20 @@
                     </div>
 
                     <div class="form-group">
+                      <label>Historia</label>
+                      <textarea                       id="history"          name="history"                class="form-control"  rows="5" cols="50" placeholder="Introduce historia" maxlength="250" required>{{ old('history') }}</textarea>
+                    </div>
+
+                    <div class="form-group">
                       <label>Fecha de Nacimiento</label>
                       <input        type="date"      id="birthdate"   name="birthdate"                class="form-control" value="{{ old('birthdate') }}" required/>
                     </div>
 
                     <div class="form-group">
                         <label>Genero</label>
-                        <select   type="text"        id="genre" name="genre"     {{-- id="estadoProducto" --}}   class="form-control" required>
-                          <option value= "">Selecciona Genero:</option>
-                          <option value = "M" selected>Masculino</option>
+                        <select   type="text"        id="genre" name="genre" class="form-control" required>
+                          <option value= "" selected>Selecciona Genero:</option>
+                          <option value = "M">Masculino</option>
                           <option value = "F">Femenino</option>
                         </select>
                     </div>
@@ -66,7 +71,7 @@
                     </div>
 
                     <div class="text-center p-2">
-                        <button id="#my-form-submit-button" type="submit" class="btn btn-primary">Registrar Niño</button>
+                        <button id="#form_submit_nino" type="submit" class="btn btn-primary">Nuevo Registro</button>
                     </div>
 
                 </form>

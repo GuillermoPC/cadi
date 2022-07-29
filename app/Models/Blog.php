@@ -4,18 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kid extends Model
+class Blog extends Model
 {   
     protected $guarded = [];
-    protected $table = 'kids';
-    protected $fillable =  ['name',
-                            'father_last_name',
-                            'mother_last_name',
-                            'history',
-                            'birthdate',
-                            'genre',
-                            'age',
-                            'img'];
+    protected $table = 'blogs';
+    protected $fillable =  ['author',
+                            'title',
+                            'body',
+                            'img',];
     
     protected $hidden   =  ['status', 
                             'created_by', 

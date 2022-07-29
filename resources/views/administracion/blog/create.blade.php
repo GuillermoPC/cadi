@@ -1,94 +1,49 @@
     {{-- Form Nuevo Producto --}}
-      
+    
       <!-- Modal -->
-      <div class="modal fade" id="modal-create-blog" tabindex="-1" aria-labelledby="modal-create-blogLabel" aria-hidden="true">
+      <div class="modal fade" id="modal-create-blog" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modal-create-blogLabel" aria-hidden="true">
         
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
           
           <div class="modal-content">
             
             <div class="modal-header">
-              <h5 class="modal-title" id="modal-create-blogLabel">Nuevo Producto</h5>
+              <h5 class="modal-title" id="modal-create-blogLabel">Nuevo Blog</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
 
-              {{-- @php
-                  print_r($errors->createProducto);
-              @endphp --}}
-                
-              <form id="myform" {{-- action="{{route('producto.store')}}" --}} method="POST" enctype="multipart/form-data" id="form-create-producto">
+              <form id="create-blog" action="{{route('blog.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
+                    <input type="hidden" id="id-blog" name="id">
+
                     <div class="form-group">
-                      <label>Nombre Producto</label>
-                      <input      type="text"        name="nombreProducto"     {{-- id="nombreProducto" --}}       class="form-control"  value="{{ old('nombreProducto') }}"        placeholder="Introduce Nombre Producto" maxlength="30" required>
+                      <label>Autor</label>
+                      <input      type="text"        id="author" name="author"     class="form-control"  value="{{ old('author') }}"        placeholder="Introduce Autor" maxlength="30" required>
                     </div>
 
                     <div class="form-group">
-                      <label>Descripción</label>
-                      <textarea                      name="desProducto"        id="desProducto"          class="ckeditor" rows="3" placeholder="Ingresa Descripción Producto" required>{{ old('desProducto') }}</textarea>
+                      <label>Título</label>
+                      <input      type="text"        id="title" name="title"      class="form-control"  value="{{ old('title') }}"        placeholder="Introduce Título" maxlength="30" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Cuerpo</label>
+                      <textarea                      name="body"        id="body"          class="form-control" rows="3" placeholder="Ingresa cuerpo del blog" required>{{ old('body') }}</textarea>
                     </div> 
 
-                    @error('desProducto')
-                      {{-- <span class="invalid-feedback" role="alert">
-                        <strong></strong>
-                      </span> --}}
-                      <br>
-                        <strong style="color: red;">{{ $message }}</strong>
-                      <br> 
-                      
-                    @enderror
-
                     <div class="form-group">
-                        <label>Precio</label>
-                        <input    type="text"      name="precioProducto"     {{-- id="precioProducto" --}}       class="form-control"    value="{{old('precioProducto') }}"      placeholder="0,000.00" step="0.01" maxlength="10" pattern="[0-9]*([.][0-9][0-9])" onchange="(function(el){el.value=parseFloat(el.value).toFixed(2);})(this)" value="0.00" title="Ingresa un formato de numero valido" required>
+                      <label>Imagén</label>
+                      <input      type="file"         id="img_blog"     name="img"        class="form-control"  placeholder="Selecciona una imagen" accept="image/*" required>
+                      <div class="text-center p-2">
+                        <img id="img_preview_blog"   src="#" alt="Selecciona Imagén" class="img-thumbnail rounded" style="width: 200px; height:200px; object-fit: cover;"/>
+                      </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>Imagen Producto</label>
-                        <input    type="file"        name="IMGProducto"        {{-- id="IMGProducto" --}}           class="form-control"       placeholder="URL" accept="image/*" required>
-                    </div>
-
-                    <div class="form-group">
-                          
-                      <input      type="hidden" name="created_by"   {{-- id="created_by" --}}   value="{{Auth::user()->name}}"      class="form-control">    
-                  
-                    </div>
-
-                    <div class="form-group">
-                        <label>Categoria</label>
-                        <select   type="text"         name="categoria_id"      {{-- id="categoria_id"  --}}         class="form-control" required>
-                          <option   value = ""     >Selecciona Categoria:</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Estado</label>
-                        <select   type="text"   name="estadoProducto"     {{-- id="estadoProducto" --}}   class="form-control" required>
-                          
-                          <option value= "">Selecciona Estado:</option>
-
-                          @switch(true)
-                              @case(old('estadoProducto') == '1')
-                                <option value = "1" selected>Activo</option>
-                                <option value = "0">Desactivado</option>
-                                @break
-                              @case(old('estadoProducto') == '0')
-                                <option value = "1"              >Activo</option>
-                                <option value = "0" selected>Desactivado</option>
-                                @break
-                              @default
-                                <option value = "1"     >Activo</option>
-                                <option value = "0">Desactivado</option>  
-                          @endswitch
-
-                        </select>
-                </div>
-
-                    <div class="text-center p-5">
-                        <button id="#my-form-submit-button" type="submit" class="btn btn-primary">Registrar Producto</button>
+                    <div class="text-center p-2">
+                        <button id="#form_submit_blog" type="submit" class="btn btn-primary">Registrar Blog</button>
                     </div>
 
                 </form>
@@ -107,5 +62,11 @@
 
     {{-- Form Nuevo Producto --}}
 
-    
-    
+  <script>
+    img_blog.onchange = evt => {
+    const [file] = img_blog.files
+    if (file) {
+      img_preview_blog.src = URL.createObjectURL(file)
+    }
+  }
+  </script>
