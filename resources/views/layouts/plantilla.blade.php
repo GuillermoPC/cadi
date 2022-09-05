@@ -61,6 +61,8 @@
 
     <!--SCRIPTS OCUPADOS SOLO EN CIERTAS VISTAS-->
 
+    @yield('scripts-ayuda')
+
     @yield('scripts-administracion')   {{-- ->ADMINISTRACIÓN  --}}
 
     <!--SCRIPTS OCUPADOS SOLO EN CIERTAS VISTAS-->

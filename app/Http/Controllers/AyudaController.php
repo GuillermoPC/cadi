@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kid;
 
 class AyudaController extends Controller
 {
@@ -26,6 +27,7 @@ class AyudaController extends Controller
      */
     public function index()
     {
-        return view('ayuda');
+        $datosNiños  = Kid ::orderBy('id','DESC')       ->paginate(Kid ::all()->count());
+        return view('ayuda',['ninos'      =>  $datosNiños]);
     }
 }

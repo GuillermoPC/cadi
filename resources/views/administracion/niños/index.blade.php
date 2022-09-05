@@ -152,7 +152,7 @@
                 $('#genre').val(kid.genre);
                 $('#age').val(kid.age);
                 $("#img").removeAttr('required');
-                $('#blah').attr("src", kid.img);
+                $('#img_preview_kid').attr("src",kid.img);
                 $('#modal-create-productoLabel').text("Editar Registro");
                 document.getElementById("#form_submit_nino").innerText = "Editar Registro";
                 $('#modal-create-producto').modal('toggle');
@@ -172,7 +172,7 @@
     <script>
         $('#modal-create-producto').on('hidden.bs.modal', function () {
             $(this).find('form').trigger('reset');
-            $('#blah').attr("src", "");
+            $('#img_preview_kid').attr("src", "");
             $('#modal-create-productoLabel').text("Nuevo Registro");
             $("#img").attr('required', ''); 
             document.getElementById("#form_submit_nino").innerText = "Nuevo Registro";

@@ -64,9 +64,9 @@
 
                     <div class="form-group">
                       <label>Imagén</label>
-                      <input      type="file"         id="img"     name="img"        class="form-control"  placeholder="Selecciona una imagen" accept="image/*" required>
+                      <input      type="file"         id="img_kid"     name="img"        class="form-control"  placeholder="Selecciona una imagen" accept="image/*" required>
                       <div class="text-center p-2">
-                        <img id="blah" src="#" alt="Selecciona Imagén" class="img-thumbnail rounded" style="width: 200px; height:200px; object-fit: cover;"/>
+                        <img id="img_preview_kid" src="#" alt="Selecciona Imagén" class="img-thumbnail rounded" style="width: 200px; height:200px; object-fit: cover;"/>
                       </div>
                     </div>
 
@@ -90,14 +90,14 @@
 
     {{-- Form Nuevo Producto --}}
 
-  <script>
-    img.onchange = evt => {
-    const [file] = img.files
-    if (file) {
-      blah.src = URL.createObjectURL(file)
+    <script>
+      img_kid.onchange = evt => {
+      const [file] = img_kid.files
+      if (file) {
+        img_preview_kid.src = URL.createObjectURL(file)
+      }
     }
-  }
-  </script>
+    </script>
 
     
     

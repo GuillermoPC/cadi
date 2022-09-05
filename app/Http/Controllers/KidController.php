@@ -73,7 +73,7 @@ class KidController extends Controller
                 'birthdate'         => 'required',
                 'genre'             => 'required',
                 'age'               => 'required',
-                'img'               => 'image|max:2048',
+                //'img'               => 'image|max:2048',
             ]); 
             DB::beginTransaction();
             if($request->id){
@@ -113,8 +113,7 @@ class KidController extends Controller
           DB::rollback();
           return MessageResponse::sendResponse($request, '', null, $e);
         }
-    }
-
+    } 
 
     /**
      * Display the specified resource.
@@ -161,7 +160,7 @@ class KidController extends Controller
             'birthdate'         => 'required',
             'genre'             => 'required',
             'age'               => 'required',
-            'img'               => 'image|max:2048',
+            //'img'               => 'image|max:2048',
         ]); 
 
         DB::beginTransaction();

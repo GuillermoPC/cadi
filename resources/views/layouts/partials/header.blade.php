@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<nav class="navbar shadow navbar-expand-lg navbar-dark px-2" style="border-bottom: rgba(0, 0, 0, 0.05) 1px solid; background-color:#88B235;">
+<nav class="navbar shadow-lg navbar-expand-lg navbar-dark px-2" style="border-bottom: rgba(0, 0, 0, 0.05) 1px solid; background-color:#88B235;">
         
     <button
       class          = "navbar-toggler"
