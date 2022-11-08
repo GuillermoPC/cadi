@@ -3,8 +3,7 @@
 @section('title', 'CADI EMAÚS | Blog')
 
 @section('css')
-
-
+    <link rel="stylesheet"      href="{{asset('css/theme-blog.css')}}"> 
 @endsection
 
 {{-- PÁGINA INICIO --}}
