@@ -56,7 +56,7 @@
                                             </div>
                                         </div>
 
-                                        <!-- Email Input -->
+                                        
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="emailAddress" type="email"
                                                 placeholder="Correo Electronico" data-sb-validations="required,email" />
@@ -67,7 +67,14 @@
                                                 Address Email is not valid.</div>
                                         </div>
 
-                                        <!-- Message Input -->
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="subject" type="text"
+                                                placeholder="Sujeto" data-sb-validations="required, subject" />
+                                            <label for="subject">Sujeto</label>
+                                            <div class="invalid-feedback" data-sb-feedback="subject:required">subject is required.</div>
+                                        </div>
+
+                                        
                                         <div class="form-floating mb-3">
                                             <textarea class="form-control" id="message" type="text" placeholder="Mensaje" style="height: 10rem;"
                                                 data-sb-validations="required"></textarea>
@@ -76,7 +83,7 @@
                                                 required.</div>
                                         </div>
 
-                                        <!-- Submit success message -->
+                                        
                                         <div class="d-none" id="submitSuccessMessage">
                                             <div class="text-center mb-3">
                                                 <div class="fw-bolder">Form submission successful!</div>
@@ -86,18 +93,18 @@
                                             </div>
                                         </div>
 
-                                        <!-- Submit error message -->
+                                        
                                         <div class="d-none" id="submitErrorMessage">
                                             <div class="text-center text-danger mb-3">Error sending message!</div>
                                         </div>
 
-                                        <!-- Submit button -->
+                                        
                                         <div class="d-grid">
                                             <button class="btn btn-primary btn-lg disabled" id="submitButton"
                                                 type="submit">Enviar</button>
                                         </div>
                                     </form>
-                                    <!-- End of contact form -->
+                             
 
                                 </div>
                             </div>

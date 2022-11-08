@@ -21,6 +21,8 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $datosBlog  = Blog ::orderBy('id','DESC')       ->paginate(3);
+        return view('blog.index', ['blogs'=>$datosBlog]);
     }
 
     /**
@@ -87,14 +89,10 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
-        try {
-            $Blog = Blog::findOrFail($id);
-            return MessageResponse::sendResponse($request, 'Datos recuperados exitosamente', $Blog)->with('agregar-blog','ok');
-        } catch (\Exception $e) {
-            return MessageResponse::sendResponse($request, '', null, $e);
-        }
+        $blog  = Blog::where('id',$id)->first();
+        return view('blog.show', ['blog'=>$blog]);
     }
 
     /**
@@ -161,5 +159,7 @@ class BlogController extends Controller
 
         return response()->json(['var'=>''.$newStatus.'']);
     }
+
+    
 
 }

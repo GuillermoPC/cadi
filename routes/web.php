@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ContactoController;
-use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\DonacionController;
 use App\Http\Controllers\AyudaController;
 use App\Http\Controllers\TyCController;
@@ -41,7 +39,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('nosotros/contacto',                ContactoController::class);
 
-Route::resource('proyectos',                        ProyectoController::class);
+Route::resource('blogs',                            BlogController::class);
 
 Route::resource('donaciones',                       DonacionController::class);
 
