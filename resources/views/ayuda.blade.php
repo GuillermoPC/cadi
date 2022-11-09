@@ -7,7 +7,7 @@
     <link rel="stylesheet"      href="{{asset('css/owl.carousel.min.css')}}"> 
     <link rel="stylesheet"      href="{{asset('css/owl.theme.default.min.css')}}"> 
     <link rel="stylesheet"      href="{{asset('css/theme-shop.css')}}">
-
+    <link rel="stylesheet"      href="{{asset('css/ayuda.css')}}">
 @endsection
 
 {{-- PÁGINA INICIO --}}
@@ -82,7 +82,7 @@
         </div>
     </div> --}}
 
-    <div class="container mt-5 mb-5">
+    {{-- <div class="container mt-5 mb-5">
 
         <div class="row">
             <div class="col-md-7 order-2">
@@ -165,6 +165,39 @@
             </div>
         </div>
 
+    </div> --}}
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 pt-5 pb-2 ourTeam-hedding text-center">
+            <h1 style="color: #ED633B">Convierte en Padrino</h1>
+            <p>En <strong>CADI EMAÚS</strong> siempre habrá pequeñines es busca de personas con un gran un corazón dispuestos
+               a ayudar en pequeña o gran medida al pequeño que desee apadrinar, por lo tanto, a continuación te mostramos todos
+               los pequeños a nuestro cargo y que forman parte de este gran proyecto, ademas puedes dejar tus datos de contacto y 
+               nuestro equipo se contactara contigo en breve para que nos indiques la ayuda que desees brindar al pequeño elegiste. 
+            </p>
+          </div>
+        </div>
+        <div class="row">
+            @foreach ($ninos as $nino)  
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="row section-success ourTeam-box text-center shadow-sm rounded-lg">
+                    <div class="col-md-12 section1">
+                        <img class="shadow-sm" src="{{$nino->img}}" style="object-fit: cover">
+                    </div>
+                    <div class="col-md-12 section2 pb-3">
+                        <p>{{$nino->name}} {{$nino->father_last_name}} {{$nino->mother_last_name}}</p>
+                        <span>{{$nino->history}}</span>
+                    </div>
+                    <div class="col-md-12 section3">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <i class="fa fa-twitter"  aria-hidden="true"></i>
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 
 </Section>

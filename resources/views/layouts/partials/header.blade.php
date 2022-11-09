@@ -43,6 +43,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#88B235;">
               <li><a class="nav-link mx-4 {{request()->is('nosotros/contacto*')  ? 'active' : ''}}" href="{{ route('contacto.index') }}">CONTACTO</a></li>
+              <li><a class="nav-link mx-4 {{request()->is('nosotros/conocenos*')  ? 'active' : ''}}" {{-- href="{{ route('conocenos.index') }}" --}}>CONOCENOS</a></li>
             </ul>
           </li>
       

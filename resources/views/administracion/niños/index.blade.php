@@ -151,7 +151,7 @@
                 $('#birthdate').val(kid.birthdate);
                 $('#genre').val(kid.genre);
                 $('#age').val(kid.age);
-                $("#img").removeAttr('required');
+                $("#img_kid").removeAttr('required');
                 $('#img_preview_kid').attr("src",kid.img);
                 $('#modal-create-productoLabel').text("Editar Registro");
                 document.getElementById("#form_submit_nino").innerText = "Editar Registro";

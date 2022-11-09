@@ -10,6 +10,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdministracionController;
 use App\Http\Controllers\KidController;
 use App\Http\Controllers\BlogController;
+use App\Models\Blog;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,8 @@ use App\Http\Controllers\BlogController;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('inicio');
+    $datosBlog  = Blog::orderBy('id','DESC')->get();
+    return view('inicio', ['blogs'      =>  $datosBlog]);
 });
 
 //ADMINISTRACIÓN RUTAS

@@ -60,29 +60,29 @@
     <section id="CONTENIDO-INICIO" class="px-5 pb-5">
         <div class="w-100" >
         
-            <div class="row" >
+            <div class="row">
 
                 <div class="col-md-6">
                     
                     <div class="pb-3">
-                    <div class="pb-3 pt-3 px-4 mb-2 text-white" style="background-color: #ED633B; font-weight: bold;">
-                            Centro de Atención y Desarrollo Infantil (CADI)
-                    </div>
+                        <div class="pb-3 pt-3 px-4 mb-2 text-white text-center" style="background-color: #ED633B; font-weight: bold;">
+                                Centro de Atención y Desarrollo Infantil (CADI)
+                        </div>
 
-                    <div class="pb-3 pt-2 px-4 text-center">
-                            <p class="m-0">
-                                ”Un niño es una persona que continuará lo que tu iniciaste, el Futuro de la humanidad está en tus manos”
-                            </p>
-                    </div>
+                        <div class="pb-3 pt-2 px-4 text-center">
+                                <p class="m-0">
+                                    ”Un niño es una persona que continuará lo que tu iniciaste, el Futuro de la humanidad está en tus manos”
+                                </p>
+                        </div>
 
-                    <div class="pb-3 pt-2 px-4">
-                            <h5 style="color: #ED633B; font-weight: bold;">Bienvenida</h5>
-                            <p class="m-0">
-                                Les damos la bienvenida a nuestra estancia infantil dedicada al cuidado, alimentación y educación para los niños y las niñas, a partir de los 6 meses hasta los 6 años.
-                            </p>
-                    </div>
+                        <div class="pb-3 pt-2 px-4">
+                                <h5 style="color: #ED633B; font-weight: bold;">Bienvenida</h5>
+                                <p class="m-0">
+                                    Les damos la bienvenida a nuestra estancia infantil dedicada al cuidado, alimentación y educación para los niños y las niñas, a partir de los 6 meses hasta los 6 años.
+                                </p>
+                        </div>
 
-                    <div class="pb-3 pt-2 px-4">
+                        <div class="pb-3 pt-2 px-4">
                             <h5 style="color: #ED633B; font-weight: bold;">Nuestro servicio</h5>
                             <p class="m-0">
                                 Ofrecer servicios de cuidado, alimentación, educación y entretenimiento de infantes, con calidad, respeto y honestidad para las niñas y los niños, cuidándolos y formando según su etapa de desarrollo mientras los padres cumplen con la necesidad de trabajo fuera del hogar. 
@@ -95,63 +95,38 @@
 
 {{-- CARRUCEL PROYECTOS --}}
                 <div class="col-md-6">
+                    
+                    <div class="pb-3 pt-3 px-4 mb-2 text-white text-center" style="background-color: #ED633B; font-weight: bold;">
+                        ¡Visita nuestro blog!
+                    </div>
+
                     <div class="owl-carousel carousel-proyectos owl-theme">
-                                    
-                        <div class="item">
+                        
+                        @foreach ($blogs as $blog)
+                            <div class="item">
                                 <div class="row">
-                                        <div class="col-6">
-                                            <img src="https://images.pexels.com/photos/3784648/pexels-photo-3784648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid img-thumbnail" alt="">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12">
+                                                <img src="{{$blog->img}}" class="img-fluid img-thumbnail">
+                                            </div>
                                         </div>
-
-                                        <div class="col-6">
-
-                                                    <div class="row p-2">
-                                                        <h5 style="color: #ED633B; font-weight: bold;">Últimos Proyectos</h5>
-                                                        <p class="m-0">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem libero perspiciatis dignissimos nobis debitis exercitationem nihil totam illum, sunt, excepturi hic. Nisi blanditiis velit, fugit unde accusantium maxime alias temporibus?
-                                                        </p>
-
-                                                        <br>
-
-                                                        <p class="m-0">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem libero perspiciatis dignissimos nobis debitis exercitationem nihil totam illum, sunt, excepturi hic. Nisi blanditiis velit, fugit unde accusantium maxime alias temporibus?
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="row p-2 mx-4">
-                                                        <a class="btn btn-cadi" href="#" role="button">Ver Más</a>
-                                                    </div>
+                                        
+                                        <div class="row justify-content-center">
+                                            <div class="col-12">
+                                                <div class="row p-2">
+                                                    <h5 style="color: #ED633B; font-weight: bold;">{{$blog->title}}</h5>
+                                                    <p class="m-0">
+                                                        <p>{{Str::words($blog->body, 50, '[...]')}}</p>
+                                                    </p>
+                                                </div>
+                                                <div class="row p-2 mx-4">
+                                                    <a class="btn btn-cadi" href="{{route('blogs.show',$blog->id)}}" role="button">Ver Más</a>
+                                                </div>
+                                            </div>
                                         </div>
                                 </div>
-                        </div>{{-- DIV ITEM --}}
-
-                        <div class="item">
-                            <div class="row">
-                                    <div class="col-6">
-                                        <img src="https://images.pexels.com/photos/3662634/pexels-photo-3662634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid img-thumbnail" alt="">
-                                    </div>
-
-                                    <div class="col-6">
-
-                                                <div class="row p-2">
-                                                    <h5 style="color: #ED633B; font-weight: bold;">Últimos Proyectos</h5>
-                                                    <p class="m-0">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem libero perspiciatis dignissimos nobis debitis exercitationem nihil totam illum, sunt, excepturi hic. Nisi blanditiis velit, fugit unde accusantium maxime alias temporibus?
-                                                    </p>
-
-                                                    <br>
-
-                                                    <p class="m-0">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem libero perspiciatis dignissimos nobis debitis exercitationem nihil totam illum, sunt, excepturi hic. Nisi blanditiis velit, fugit unde accusantium maxime alias temporibus?
-                                                    </p>
-                                                </div>
-
-                                                <div class="row p-2 mx-4">
-                                                    <a class="btn btn-cadi" href="#" role="button">Ver Más</a>
-                                                </div>
-                                    </div>
-                            </div>
-                    </div>{{-- DIV ITEM --}}
+                            </div>{{-- DIV ITEM --}}
+                        @endforeach
 
                     </div>{{-- DIV CARRUSEL --}}
                 </div>
